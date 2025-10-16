@@ -1,0 +1,16 @@
+{
+  "catenaXId": "PartTypeInformation_P2",
+  "partSiteInformationAsPlanned": [
+    {
+      "catenaXsiteId": "BPNS0000000E512T",
+      "function": "production",
+      "functionValidFrom": "2024-01-01T00:00:00.001Z",
+      "functionValidUntil": "2026-12-31T23:59:59.999Z"
+    }
+  ],
+  "partTypeInformation": {
+    "classification": "product",
+    "manufacturerPartId": "Participant 2",
+    "nameAtManufacturer": "asm_drive"
+  }
+}

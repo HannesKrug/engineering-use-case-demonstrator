@@ -1,0 +1,161 @@
+{
+  "description": [
+    {
+      "language": "en",
+      "text": "Digital Twin on type level."
+    }
+  ],
+  "displayName": [],
+  "id": "urn:uuid:a4a799e4-e7dd-47ba-86e3-83d08bf23525",
+  "idShort": "QGD3DM0000002",
+  "specificAssetIds": [
+    {
+      "externalSubjectId": {
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "BPNL000000000KRK"
+          }
+        ],
+        "type": "ExternalReference"
+      },
+      "name": "digitalTwinType",
+      "supplementalSemanticIds": [],
+      "value": "PartType"
+    },
+    {
+      "externalSubjectId": {
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "BPNL000000000KRK"
+          }
+        ],
+        "type": "ExternalReference"
+      },
+      "name": "assetLifecyclePhase",
+      "supplementalSemanticIds": [],
+      "value": "AsPlanned"
+    },
+    {
+      "externalSubjectId": {
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "BPNL000000000KRK"
+          }
+        ],
+        "type": "ExternalReference"
+      },
+      "name": "customerPartId",
+      "supplementalSemanticIds": [],
+      "value": "QGD3DM0000030"
+    },
+    {
+      "externalSubjectId": {
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "BPNL000000000KRK"
+          }
+        ],
+        "type": "ExternalReference"
+      },
+      "name": "manufacturerPartId",
+      "supplementalSemanticIds": [],
+      "value": "0300000MD3DGQ"
+    }
+  ],
+  "submodelDescriptors": [
+    {
+      "description": [
+        {
+          "language": "de",
+          "text": "Ein Teil wie geplant stellt einen Artikel in der Catena-X-Stückliste mit dem Lebenszyklusstatus „Wie geplant“ in einer bestimmten Version dar."
+        },
+        {
+          "language": "en",
+          "text": "A Part as Planned represents an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a specific version."
+        }
+      ],
+      "displayName": [],
+      "endpoints": [
+        {
+          "interface": "SUBMODEL-3.0",
+          "protocolInformation": {
+            "endpointProtocol": "HTTP",
+            "endpointProtocolVersion": ["1.1"],
+            "href": "PartTypeInformation_P2.json",
+            "securityAttributes": [
+              {
+                "key": "NONE",
+                "type": "NONE",
+                "value": "NONE"
+              }
+            ],
+            "subprotocol": "DSP",
+            "subprotocolBody": "id=f0f0621e-e466-481b-b61b-0dc14d71caa4;dspEndpoint=https://dev-integrationsuite-mbag.dsi001.dsi.integration.cloud.sap",
+            "subprotocolBodyEncoding": "plain"
+          }
+        }
+      ],
+      "id": "urn:uuid:f0f0621e-e466-481b-b61b-0dc14d71caa4",
+      "idShort": "part:2.0.0",
+      "semanticId": {
+        "keys": [
+          {
+            "type": "Submodel",
+            "value": "urn:samm:io.catenax.part:2.0.0#Part"
+          }
+        ],
+        "type": "ExternalReference"
+      },
+      "supplementalSemanticId": []
+    },
+    {
+      "description": [
+        {
+          "language": "de",
+          "text": "CAD Strukturmodell für den digitalen Zwilling."
+        },
+        {
+          "language": "en",
+          "text": "CAD structure model for the digital twin."
+        }
+      ],
+      "displayName": [],
+      "endpoints": [
+        {
+          "interface": "SUBMODEL-3.0",
+          "protocolInformation": {
+            "endpointProtocol": "HTTP",
+            "endpointProtocolVersion": ["1.1"],
+            "href": "3dDataAs-X_P2.json",
+            "securityAttributes": [
+              {
+                "key": "NONE",
+                "type": "NONE",
+                "value": "NONE"
+              }
+            ],
+            "subprotocol": "DSP",
+            "subprotocolBody": "id=3ddata-as-x;dspEndpoint=https://data.threedy.io",
+            "subprotocolBodyEncoding": "plain"
+          }
+        }
+      ],
+      "id": "urn:uuid:3ddata-as-x",
+      "idShort": "3ddata-as-x:1.0.0",
+      "semanticId": {
+        "keys": [
+          {
+            "type": "Submodel",
+            "value": "urn:samm:io.catenax.3ddata-as-x:1.0.0#CADAsPlanned"
+          }
+        ],
+        "type": "ExternalReference"
+      },
+      "supplementalSemanticId": []
+    }
+  ]
+}

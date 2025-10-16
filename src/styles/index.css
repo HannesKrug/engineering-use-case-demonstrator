@@ -1,0 +1,34 @@
+:root {
+    --webvis-blue: #2484C6;
+
+    --cx-primary-color: #60b1dc;
+    --cx-primary-color-active: #8facc0;
+    --cx-secondary-color: #a1a1a1;
+    --cx-secondary-color-active: #adadad;
+    --cx-tertiary-color: transparent;
+    --cx-tertiary-color-active: #ccc;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#viewer {
+    width: 70%;
+    height: 100%;
+}

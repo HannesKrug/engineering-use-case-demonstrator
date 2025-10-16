@@ -1,0 +1,17 @@
+{
+  "catenaXId": "SLBOM_P1",
+  "childItems": [
+    {
+      "businessPartner": "participant_2",
+      "catenaXId": "AAS_P2"
+    },
+    {
+      "businessPartner": "participant_3",
+      "catenaXId": "AAS_P3"
+    },
+    {
+      "businessPartner": "participant_4",
+      "catenaXId": "AAS_P4"
+    }
+  ]
+}

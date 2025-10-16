@@ -1,0 +1,16 @@
+{
+  "catenaXId": "PartTypeInformation_P4",
+  "partSiteInformationAsPlanned": [
+    {
+      "catenaXsiteId": "BPNS0000000GL9T2",
+      "function": "production",
+      "functionValidFrom": "2024-01-01T00:00:00.001Z",
+      "functionValidUntil": "2026-12-31T23:59:59.999Z"
+    }
+  ],
+  "partTypeInformation": {
+    "classification": "product",
+    "manufacturerPartId": "Participant 4",
+    "nameAtManufacturer": "breakdisc"
+  }
+}
