@@ -16,7 +16,7 @@ The approach strengthens interoperability between companies, increases transpare
 
 Checkout short video introduction: https://www.loom.com/share/b80341945a864c5d90c2a8673bba4fb1?sid=a078be8b-2d92-4ec5-9f31-9724c40cc544
 
-![Catena-X Demo Application](./doc/imgs/CatenaXDemoApp_Threedy.png){width=450px}
+![Catena-X Demo Application](docs/imgs/CatenaXDemoApp_Threedy.png){width=450px}
 
 
 ## Proposal

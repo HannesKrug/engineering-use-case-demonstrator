@@ -1,0 +1,7 @@
+product: "engineering-use-case-demonstrator"
+leadingRepository: "https://github.com/eclipse-tractusx/engineering-use-case-demonstrator"
+repoCategory: "support"
+repositories:
+- name: "engineering-use-case-demonstrator"
+  usage: "Engineering Use Case Demonstrator"
+  url: "https://github.com/eclipse-tractusx/engineering-use-case-demonstrator"
