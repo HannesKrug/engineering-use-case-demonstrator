@@ -17,6 +17,16 @@ All content is the property of the respective authors or their employers. For
 more information regarding authorship of content, please consult the listed
 source code repository logs.
 
+## Original Author
+
+This project was originally developed by Threedy GmbH.
+
+* Company: Threedy GmbH
+* Website: https://threedy.io
+* Contribution: Catena-X 3D Demo Application - Reference implementation for 3D data integration into Catena-X standard
+
+The project is now contributed to and maintained under the Eclipse Tractus-X project.
+
 ## Declared Project Licenses
 
 The Tractus-X project uses the following licenses:
