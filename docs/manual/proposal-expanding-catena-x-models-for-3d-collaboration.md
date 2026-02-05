@@ -23,7 +23,7 @@ Authors: Sarah Berkei, Niklas Fix, Hannes Krug
   - [3dDataAs-X Aspect Models](#3ddataas-x-aspect-models)
   - [3dModel Aspect Model](#3dmodel-aspect-model)
 - [Limitations of current proposal](#limitations-of-current-proposal)
-  - [Unclear Linkage to next hierarchie level](#unclear-linkage-to-next-hierarchie-level)
+  - [Unclear Linkage to next hierarchies level](#unclear-linkage-to-next-hierarchies-level)
   - [Quantity Mapping of Child Items](#quantity-mapping-of-child-items)
   - [Integration of new Aspect Models with the Asset Administration Shell (AAS)](#integration-of-new-aspect-models-with-the-asset-administration-shell-aas)
   - [Unclear Format of Linked 3dData](#unclear-format-of-linked-3ddata)
@@ -128,7 +128,7 @@ Therefore, the concept of a part in Catena-X versus in CAD differs in scope and 
 
 - **Data Focus**: Catena-X parts focus on metadata and lifecycle information (identifiers, production details, usage history) for traceability, without necessarily including geometry. In contrast, CAD parts focus on the geometric representation (3D models, drawings) necessary for production and fabrication.
 
-- **Instance vs. Design**: Catena-X differentiates part instances from part types, with each physical part having its own digital twin and unique ID for item-level traceability. CAD parts, however, represent design templates that can be instantiated multiple times, and do not typically track individual physical instances. Its to be noted that CAD understand variants and configurations that might have a overlap methodolically and semantcally but should not be further considered here.
+- **Instance vs. Design**: Catena-X differentiates part instances from part types, with each physical part having its own digital twin and unique ID for item-level traceability. CAD parts, however, represent design templates that can be instantiated multiple times, and do not typically track individual physical instances. It's to be noted that CAD understand variants and configurations that might have an overlap methodologically and semantically but should not be further considered here.
 
 - **Geometric vs. Semantic Content**: Catena-X parts emphasize semantic data through AAS submodels, which include details like serial numbers, batch info, and quality status, focusing on data sharing rather than geometry. CAD parts, on the other hand, contain detailed geometric data (surfaces, solids, dimensions) and "surrounding" data such as structure, PMI, Modelviews, etc. essential for manufacturing and simulation.
 
@@ -163,7 +163,7 @@ A submodel is a **modular part of the AAS** that contains specific information a
 
 ### One-Up-One Down Principle
 
-Another important aspect when working Catena-X is the One-Level-Up / One-Level-Down Principle. Meaning that data is always shared between participant one level up or down in the supply chain. Therefore also the data provisioning and authorisation is typically represented in contracts between one-level-up/down participants.
+Another important aspect when working Catena-X is the One-Level-Up / One-Level-Down Principle. Meaning that data is always shared between participant one level up or down in the supply chain. Therefore, also the data provisioning and authorization is typically represented in contracts between one-level-up/down participants.
 
 ## Separation of 3D Data Responsibilities: Catena-X vs. 3D Data (CAD) Files
 
@@ -235,13 +235,13 @@ Geometry can be defined as the area of mathematics relating to the study of spac
 
 - Points: Zero-Dimensional entities defined by a single coordinate
 
-- Edges (Lines, Curves): One-Dimensional entities conntecting two points
+- Edges (Lines, Curves): One-Dimensional entities connecting two points
 
 - Faces: Two-Dimensional surfaces bounded by edges
 
 - Shapes: Three-dimensional entities composed of multiple faces
 
-This information is persisted in 3d data assets. When introducing geometric information exchange within Catena-X this might be a potential to directly exchange pieces of information on the level of geometic information.
+This information is persisted in 3d data assets. When introducing geometric information exchange within Catena-X this might be a potential to directly exchange pieces of information on the level of geometric information.
 
 For this iteration we choose to keep the exchange of this type of information contained in the 3d data. In the future it might be suitable to have the discussion on a deeper level according to the above definition.
 
@@ -255,7 +255,7 @@ In the current structure of Catena-X, 3D data cannot be adequately represented. 
 
 In the following we will refer to the 4 lifecycle aspect models as **3dDataAs-X**.
 
-The **3dDataAs-X aspect** model should represent the 3D model structure in the sense of a product in catena-x by linking to child components and optional their associated transformations, ensuring a clear hierarchical and spatial relationship between elements. Additionally the aspect model is referencing to the 3dModel data, without distinguishing in the representation whether it is own data or data from other suppliers. The **3dModel** aspect, provides access to the relevant 3D data by a reference to their storage location (URN, URI, URL, external file location), enabling efficient retrieval and visualization of detailed design information. These extensions would enhance the digital representation of product structures within Catena-X and support seamless integration across the value chain.
+The **3dDataAs-X aspect** model should represent the 3D model structure in the sense of a product in catena-x by linking to child components and optional their associated transformations, ensuring a clear hierarchical and spatial relationship between elements. Additionally, the aspect model is referencing to the 3dModel data, without distinguishing in the representation whether it its own data or data from other suppliers. The **3dModel** aspect, provides access to the relevant 3D data by a reference to their storage location (URN, URI, URL, external file location), enabling efficient retrieval and visualization of detailed design information. These extensions would enhance the digital representation of product structures within Catena-X and support seamless integration across the value chain.
 
 ![Catena-X augmented with new 3D Aspect Models](../media/catena-x-augmented-with-new-3d-aspect-models.png)
 *Catena-X augmented with new 3D Aspect Models*
@@ -343,14 +343,14 @@ The **3dModel** aspect model is responsible for the direct referencing of the 3D
 
 The current proposal holds some limitation that we want to discuss here.
 
-### Unclear Linkage to next hierarchie level
+### Unclear Linkage to next hierarchies level
 
 Currently, the linkage from the catenaXId of a childItem within the 3dDataAs-X to the next hierarchical level is ambiguous. Specifically, it is unclear whether the catenaXId references directly to a 3dModel or to an Asset Administration Shell (AAS). Due to simplification efforts and considerations regarding access rights, visibility rules, and edge case handling, the current proposal deliberately avoids differentiating between internal and external references, relying solely on a single catenaXId.\
 However, this approach introduces limitations in clarity and explicit linkage. An alternative solution could involve distinguishing between two identifiers: an externalCatenaXId and an internalCatenaXId. The externalCatenaXId would explicitly link to an AAS providing e.g. a reduced data form of the 3dModel, ensuring availability even without direct connectivity between participants (aligned with the One Up One Down Principle). Conversely, the internalCatenaXId could directly reference either the complete 3dModel (if the data is directly accessible through the Digital Twin) or an AAS offering full data access. Although more complex, implementing this distinction would resolve the ambiguity and clearly define different access scenarios, enhancing robustness in hierarchical data referencing.
 
 ### Quantity Mapping of Child Items
 
-The quantity for each childItem is specified as a number in the SingleLeveleBOMAs-X. Assuming that the SingleLevelBOMAs-X and 3dDataAs-X structures have a semantically similar meaning: If there is a corresponding entry in the 3dDataAs-X, it must be appear in the same quantity, meaning the mapping quantity \> 1 in the SingleLevelBOMAs-X must be handled.
+The quantity for each childItem is specified as a number in the SingleLeveleBOMAs-X. Assuming that the SingleLevelBOMAs-X and 3dDataAs-X structures have a semantically similar meaning: If there is a corresponding entry in the 3dDataAs-X, it must be appeared in the same quantity, meaning the mapping quantity \> 1 in the SingleLevelBOMAs-X must be handled.
 
 Possible Solutions:
 
@@ -372,7 +372,7 @@ The **3dDataAs-X** aspect model integrates seamlessly with the Asset Administrat
 
 2. Direct 3D Data Integration
 
-    - If a childItem contains its own 3D data instead of referencing another AAS, it includes a linkt to the 3dModel using the catenaXId.
+    - If a childItem contains its own 3D data instead of referencing another AAS, it includes a link to the 3dModel using the catenaXId.
 
     - This allows seamless access to supplier-provided or internally generated 3D assets.
 
@@ -467,7 +467,7 @@ Despite the challenges related to quantity mapping, data ownership, and redundan
 
 ## Appendix - Example
 
-In the following, an example use case is constructed that represents a typical application of 3D data in the Catena-X context. It consists of 5 exemplary participants in the supply chain (Participant 1-5). Participant 1 simulates an OEM while the participants 2, 3 and 4 simulate a first-level tier. Participant 5 can be seen as a second-level tier (via participant 3, in our case). The product published by participant 1 is a full motorbike assembly (asm_motorbike_full). This product is a combination of parts and assemblies described in the STEP files **and** products published via Catena-X typicall in a JSON file.
+In the following, an example use case is constructed that represents a typical application of 3D data in the Catena-X context. It consists of 5 exemplary participants in the supply chain (Participant 1-5). Participant 1 simulates an OEM while the participants 2, 3 and 4 simulate a first-level tier. Participant 5 can be seen as a second-level tier (via participant 3, in our case). The product published by participant 1 is a full motorbike assembly (asm_motorbike_full). This product is a combination of parts and assemblies described in the STEP files **and** products published via Catena-X typically in a JSON file.
 
 The project with code, sample files etc. can be found under: <https://github.com/threedy-io/catena-x-3d>
 
