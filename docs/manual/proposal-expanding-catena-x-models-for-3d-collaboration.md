@@ -60,7 +60,7 @@ This chapter explores **Single Level BOMs in Catena-X**. It contrasts this with 
 
 A **Single Level Bill of Materials (BOM)** in Catena-X is a standardized data model that lists the direct components of an assembly -- essentially one level of a product's BOM [[1]][reference-1].
 
-Unlike a multi-level BOM (which includes all nested sub-assemblies), a single-level BOM focuses only on immediate child parts and excludes any lower-level subassemblies [[1]][reference-1]. In practice, a multi-level BOM can be obtained by connecting a series of single-level BOMs across tiers (forming a tree of one-level relationships) [[1]][reference-2]. This approach aligns with how supply chain partners typically share data: each company provides information about the parts it directly uses or produces, without exposing the entire BOM of the end product in one go.
+Unlike a multi-level BOM (which includes all nested sub-assemblies), a single-level BOM focuses only on immediate child parts and excludes any lower-level subassemblies [[1]][reference-1]. In practice, a multi-level BOM can be obtained by connecting a series of single-level BOMs across tiers (forming a tree of one-level relationships) [[2]][reference-2]. This approach aligns with how supply chain partners typically share data: each company provides information about the parts it directly uses or produces, without exposing the entire BOM of the end product in one go.
 
 In the Catena-X ecosystem, single-level BOM data is modeled as an **"aspect"** of a part's digital twin. Each part or assembly gets a digital representation (often via an Asset Administration Shell submodel) that includes a SingleLevelBOM aspect describing its immediate components[[3]][reference-3].
 
@@ -479,24 +479,24 @@ We have the following sample 3D data files that represent the data *created, pub
 
 For the scope of this project the Datapool typically in the form of a PLM, PDM or other data management system is "simulated" via simple Server. All STEP File can be found under: <https://data-public.threedy.io/testdata/catena-x/Proposal1_Example/>. The links to each file can be seen as the "endpoint" provided by each participant to consume the 3D data asset.
 
-| Name of owned file | Visual of owned data    | Owned by participant | Notes                                                                              |
-|--------------------|-------------------------|----------------------|------------------------------------------------------------------------------------|
-| asm_frame          | ![](media/image3.png)   | 1                    |                                                                                    |
-| asm_drive          | ![](media/image4.png)   | 2                    |                                                                                    |
-| sheet_tank         | ![](media/image5.png)   | 3                    |                                                                                    |
-| lid_reduced        | ![](media/image6.png)   | 3                    | reduced in structure "baking" subassemblies into one structural node and geometry  |
-| breakdisc          | ![](media/image7.png)   | 4                    |                                                                                    |
-| asm_lid_full       | ![](media/image8.png)   | 5                    |                                                                                    |
+| Name of owned file | Visual of owned data                        | Owned by participant | Notes                                                                              |
+|--------------------|---------------------------------------------|----------------------|------------------------------------------------------------------------------------|
+| asm_frame          | ![asm_frame](../media/asm_frame.png)        | 1                    |                                                                                    |
+| asm_drive          | ![asm_drive](../media/asm_drive.png)        | 2                    |                                                                                    |
+| sheet_tank         | ![sheet_tank](../media/sheet_tank.png)      | 3                    |                                                                                    |
+| lid_reduced        | ![lid_reduced](../media/lid_reduced.png)    | 3                    | reduced in structure "baking" subassemblies into one structural node and geometry  |
+| breakdisc          | ![breakdisc](../media/breakdisc.png)        | 4                    |                                                                                    |
+| asm_lid_full       | ![asm_lid_full](../media/asm_lid_full.png)  | 5                    |                                                                                    |
 
 #### Registered Digital Twins of participants
 
-| Name of owned Digital Twin | Visual of owned data                   | Published by participant | Notes                                                                     |
-|----------------------------|----------------------------------------|--------------------------|---------------------------------------------------------------------------|
-| AAS_P1.json                | ![](media/image9.png)                  | 1                        | Including sub-parts and sub-assemblies from participants 1, 2, 3, 4 & 5.  |
-| AAS_P2.json                | ![](media/image10.png)                 | 2                        |                                                                           |
-| AAS_P3.json                | ![](media/image11.png)                 | 3                        | Including sub-parts and sub-assemblies from participants 3 & 5.           |
-| AAS_P4.json                | ![](media/image12.png)                 | 4                        |                                                                           |
-| AAS_P5.json                | ![](media/image13.png)                 | 5                        |                                                                           |
+| Name of owned Digital Twin | Visual of owned data            | Published by participant | Notes                                                                     |
+|----------------------------|---------------------------------|--------------------------|---------------------------------------------------------------------------|
+| AAS_P1.json                | ![AAS_P1](../media/aas_p1.png)  | 1                        | Including sub-parts and sub-assemblies from participants 1, 2, 3, 4 & 5.  |
+| AAS_P2.json                | ![AAS_P2](../media/aas_p2.png)  | 2                        |                                                                           |
+| AAS_P3.json                | ![AAS_P3](../media/aas_p3.png)  | 3                        | Including sub-parts and sub-assemblies from participants 3 & 5.           |
+| AAS_P4.json                | ![AAS_P4](../media/aas_p4.png)  | 4                        |                                                                           |
+| AAS_P5.json                | ![AAS_P5](../media/aas_p5.png)  | 5                        |                                                                           |
 
 #### JSON Files
 
