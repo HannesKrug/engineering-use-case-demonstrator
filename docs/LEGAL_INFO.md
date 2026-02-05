@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ## Copyright
 
-Copyright (c) 2025 Threedy GmbH, Contributors to the Eclipse Foundation
+Copyright (c) 2025 Threedy GmbH
 
 ## Attribution
 
