@@ -576,8 +576,8 @@ In the following, we draw schemas for two cases of modelling the integration of 
 
 ### Schema Case 1
 
-(see external file: /imgs/Catena-X Case Version 1.jpg)
+Please see diagram [here](../media/catena-x-case-version-1.jpg)
 
 ### Schema Case 2
 
-(see external file: /imgs/Catena-X Case Version 2.jpg)
+Please see diagram [here](../media/catena-x-case-version-2.jpg)
