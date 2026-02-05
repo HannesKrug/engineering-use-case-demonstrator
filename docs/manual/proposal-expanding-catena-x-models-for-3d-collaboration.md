@@ -58,21 +58,21 @@ This chapter explores **Single Level BOMs in Catena-X**. It contrasts this with 
 
 #### SingleLevelBOMs in Catena-X
 
-A **Single Level Bill of Materials (BOM)** in Catena-X is a standardized data model that lists the direct components of an assembly -- essentially one level of a product's BOM hierarchy​ [\[1\]](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit/#:~:text=A%20single,level%20subassemblies).
+A **Single Level Bill of Materials (BOM)** in Catena-X is a standardized data model that lists the direct components of an assembly -- essentially one level of a product's BOM [[1]][reference-1].
 
-Unlike a multi-level BOM (which includes all nested sub-assemblies), a single-level BOM focuses only on immediate child parts and excludes any lower-level subassemblies​ [\[1\]](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit/#:~:text=A%20single,level%20subassemblies). In practice, a multi-level BOM can be obtained by connecting a series of single-level BOMs across tiers (forming a tree of one-level relationships)​ [\[1\]](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit/#:~:text=blend%2C%20intermediate%2C%20etc,individual%20single%20level%20BOMs%20together). This approach aligns with how supply chain partners typically share data: each company provides information about the parts it directly uses or produces, without exposing the entire BOM of the end product in one go.
+Unlike a multi-level BOM (which includes all nested sub-assemblies), a single-level BOM focuses only on immediate child parts and excludes any lower-level subassemblies [[1]][reference-1]. In practice, a multi-level BOM can be obtained by connecting a series of single-level BOMs across tiers (forming a tree of one-level relationships) [[1]][reference-2]. This approach aligns with how supply chain partners typically share data: each company provides information about the parts it directly uses or produces, without exposing the entire BOM of the end product in one go.
 
-In the Catena-X ecosystem, single-level BOM data is modeled as an **"aspect"** of a part's digital twin. Each part or assembly gets a digital representation (often via an Asset Administration Shell submodel) that includes a SingleLevelBOM aspect describing its immediate components​ [\[2\]](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0042_Semantic_Model_Single_Level_BomAsPlanned_v_1.0.1.pdf#:~:text=The%20semantic%20model%20described%20below,BOM%E2%80%9D).
+In the Catena-X ecosystem, single-level BOM data is modeled as an **"aspect"** of a part's digital twin. Each part or assembly gets a digital representation (often via an Asset Administration Shell submodel) that includes a SingleLevelBOM aspect describing its immediate components[[3]][reference-3].
 
-For example, an OEM's digital twin of a car door might have a single-level BOM listing the door's direct components (glass, wiring harness, latch, etc.), each identified by standardized part IDs. By design, this one-step-at-a-time representation matches the **one-up/one-down principle** -- companies share part relationship data with their direct suppliers or customers only, which is the basis for secure, sovereign data exchange in Catena-X​ [\[1\]](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit/#:~:text=to%20their%20sub,and%20data%20sovereign%20data%20chain).
+For example, an OEM's digital twin of a car door might have a single-level BOM listing the door's direct components (glass, wiring harness, latch, etc.), each identified by standardized part IDs. By design, this one-step-at-a-time representation matches the **one-up/one-down principle** -- companies share part relationship data with their direct suppliers or customers only, which is the basis for secure, sovereign data exchange in Catena-X [[4]][reference-4].
 
 There are four types of Single-Level BOMs, based on the definition aligned with STEP AP 242 along the product lifecycle:
 
 1. **AsDesigned** (not implemented): Build up the initial BoM in design phase of a new automotive product including alternative parts. Expected to have research & development part descriptions instead of specific part numbers
 
-2. **AsPlanned** (implemented): BoM AsPlanned is used to plan manufacturing including alternative parts. It is a generic list of all possible catalogue parts & materials for a specific vehicle project and the supply chain from OEM to raw material suppliers [\[3\]](https://catenax-ev.github.io/docs/next/standards/CX-0126-IndustryCorePartType).
+2. **AsPlanned** (implemented): BoM AsPlanned is used to plan manufacturing including alternative parts. It is a generic list of all possible catalogue parts & materials for a specific vehicle project and the supply chain from OEM to raw material suppliers [[5]][reference-5].
 
-3. **AsBuilt** (implemented): BoM as a component is built or manufactured. During manufacturing of e.g. a vehicle the serial numbers & batch numbers are documented. This leads to one BoM per built car. "The BoM includes all part/components which either have a serial number, batch number, JIS number (sequence number) or a combination out of these. This means, that there is a direct and specific connection between a parent and a child part/component so that an accurate and exact traceability is possible." [\[3\]](https://catenax-ev.github.io/docs/next/standards/CX-0127-IndustryCorePartInstance).
+3. **AsBuilt** (implemented): BoM as a component is built or manufactured. During manufacturing of e.g. a vehicle the serial numbers & batch numbers are documented. This leads to one BoM per built car. "The BoM includes all part/components which either have a serial number, batch number, JIS number (sequence number) or a combination out of these. This means, that there is a direct and specific connection between a parent and a child part/component so that an accurate and exact traceability is possible." [[6]][reference-6].
 
 4. **AsMaintained** (not implemented): BoM after for e.g. a vehicle was picked up by the customer. Changes to live cycle before may apply due to maintenance or repair work e.g. exchange of parts, liquids, etc. AsMaintained is especially important in the aerospace sector.
 
@@ -92,15 +92,15 @@ The following discusses the semantic definition of a part in Catena-X and the tr
 
 **Catena-X Definition of a \"Part\" (Digital Twin Context)**
 
-In the Catena-X ecosystem, a part is represented as a digital twin of an asset -- a standardized digital representation of a physical component. Each part's twin has a globally unique identifier and is registered in a Digital Twin Registry for discovery [\[4\]](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX#:~:text=,wide%20unique%20identifier%20%28ID).
+In the Catena-X ecosystem, a part is represented as a digital twin of an asset -- a standardized digital representation of a physical component. Each part's twin has a globally unique identifier and is registered in a Digital Twin Registry for discovery [[7]][reference-7].
 
-Importantly, Catena-X distinguishes between the physical part and its digital twin: a Unique ID identifies the physical part (especially for serialized items), while a separate AAS ID identifies the twin representing that part. The AAS for a part contains multiple Submodels (aspects), each capturing a different facet of the part's data (e.g. identification, production info, usage history) [\[4\]](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX#:~:text=electronically%20in%20a%20standardized%20manner,use%20cases%20and%20data%20consumers). Using these submodels, Catena-X digital twins can reference one another to express assembly relationships (i.e. "part-of" or "consists-of" links in a bill of materials) [\[4\]](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX#:~:text=and%20business%20process%20integration). Overall, Catena-X defines a \"part\" in terms of interoperable data -- focusing on its identity, state, and relationships in the supply chain -- rather than just its geometry.
+Importantly, Catena-X distinguishes between the physical part and its digital twin: a Unique ID identifies the physical part (especially for serialized items), while a separate AAS ID identifies the twin representing that part. The AAS for a part contains multiple Submodels (aspects), each capturing a different facet of the part's data (e.g. identification, production info, usage history) [[7]][reference-7]. Using these submodels, Catena-X digital twins can reference one another to express assembly relationships (i.e. "part-of" or "consists-of" links in a bill of materials) [[7]][reference-7]. Overall, Catena-X defines a \"part\" in terms of interoperable data -- focusing on its identity, state, and relationships in the supply chain -- rather than just its geometry.
 
 Catena-X differentiates between a **Part Type** and a **Part Instance**.
 
-- **Part Type** is the *design or category* of a part (a generic component definition at the catalog or material level, not tied to a single physical item)[\[5\]](https://catenax-ev.github.io/docs/next/standards/CX-0127-IndustryCorePartInstance#:~:text=Part%20Instance%3A%20A%20part%20instance,part%29%20of%20a%20part%20type).
+- **Part Type** is the *design or category* of a part (a generic component definition at the catalog or material level, not tied to a single physical item)[[6]][reference-6].
 
-- **Part Instance** is an actual manufactured item of that design -- e.g. a specific serialized unit, a particular batch, or a JIS delivery unit [\[5\]](https://catenax-ev.github.io/docs/next/standards/CX-0127-IndustryCorePartInstance#:~:text=Part%20Instance%3A%20A%20part%20instance,part%29%20of%20a%20part%20type).
+- **Part Instance** is an actual manufactured item of that design -- e.g. a specific serialized unit, a particular batch, or a JIS delivery unit [[6]][reference-6].
 
 Similar to the usage of the SingleLevelBOMs in the lifecycle stages. A part type typically is referenced already in the early stages such as AsPlanned. While the Part Instance becomes relevant during the later stages e.g. AsBuilt.
 
@@ -116,7 +116,7 @@ Catena-X further classifies parts by how they are produced and identified, which
 
 In traditional CAD and 3D modeling, a part refers to a discrete component in a product's design, primarily defined by its geometric model. A CAD part is essentially a 3D object file (or model) that captures the shape, features, and dimensions of a component. While focussed on the geometry the CAD part is "augmented" with information such as: Metadata, PMI, Modelviews, etc.
 
-For example, in mechanical CAD software, a part file contains the solid geometry (often as B-rep or meshes) and maybe some design parameters or material properties needed for engineering. Standards like ISO 10303 (STEP) illustrate the CAD-centric view of a part: STEP's Application Protocol 203 was created to represent the geometry, topology, and configuration of mechanical parts and assemblies for data exchange [\[6\]](https://www.precisionmoldedplastics.com/blog/cad-part-modeling/#:~:text=ISO%2010303%20includes%20numerous%20Application,Additionally). In other words, CAD data focuses on the physical design definition -- the 3D shape, how parts fit together in an assembly, and possibly technical drawings or tolerances (as in CAD models with PMI or GD&T). Each part in CAD typically has a part number or name and can be used in one or many assemblies, but the CAD model itself does not differentiate individual production instances. A CAD "part" is generally a *master design*; if you manufacture 100 identical pieces from that design, they all reference the same CAD file (the CAD model doesn't track each serial number). Assemblies in CAD define structural relationships (which parts connect to which in a product), but these are managed within the CAD/PLM environment and are not inherently meant for cross-company traceability -- they exist to aid design and manufacturing within an organization.
+For example, in mechanical CAD software, a part file contains the solid geometry (often as B-rep or meshes) and maybe some design parameters or material properties needed for engineering. Standards like ISO 10303 (STEP) illustrate the CAD-centric view of a part: STEP's Application Protocol 203 was created to represent the geometry, topology, and configuration of mechanical parts and assemblies for data exchange [[8]][reference-8]. In other words, CAD data focuses on the physical design definition -- the 3D shape, how parts fit together in an assembly, and possibly technical drawings or tolerances (as in CAD models with PMI or GD&T). Each part in CAD typically has a part number or name and can be used in one or many assemblies, but the CAD model itself does not differentiate individual production instances. A CAD "part" is generally a *master design*; if you manufacture 100 identical pieces from that design, they all reference the same CAD file (the CAD model doesn't track each serial number). Assemblies in CAD define structural relationships (which parts connect to which in a product), but these are managed within the CAD/PLM environment and are not inherently meant for cross-company traceability -- they exist to aid design and manufacturing within an organization.
 
 What is included in a CAD file -- and what is not -- is not strictly defined. The actual content varies depending on how the creating company structures its processes, leading to a spectrum of information that may be present.
 
@@ -149,7 +149,7 @@ Therefore, the concept of a part in Catena-X versus in CAD differs in scope and 
 #### Submodels
 
 ![Overview of submodels](../media/overview-submodels.png)
-*Overview of submodels as found on \[[7](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX)\]*
+*Overview of submodels as found on [[7]][reference-7]*
 
 A submodel is a **modular part of the AAS** that contains specific information about an asset. Each submodel represents a defined subset of data and functions within the digital twin. It describes:
 
@@ -456,19 +456,14 @@ Despite the challenges related to quantity mapping, data ownership, and redundan
 
 ## Sources
 
-\[1\] <https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit/#:~:text=A%20single,level%20subassemblies>
-
-\[2\] [https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX\_-\_0042_Semantic_Model_Single_Level_BomAsPlanned_v_1.0.1.pdf#:\~:text=The semantic model described below,BOM"](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0042_Semantic_Model_Single_Level_BomAsPlanned_v_1.0.1.pdf#:~:text=The%20semantic%20model%20described%20below,BOM%E2%80%9D)
-
-\[3\] <https://catenax-ev.github.io/docs/next/standards/CX-0126-IndustryCorePartType>
-
-\[4\] <https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX#:~:text=,wide%20unique%20identifier%20%28ID>
-
-\[5\] <https://catenax-ev.github.io/docs/next/standards/CX-0127-IndustryCorePartInstance#:~:text=Part%20Instance%3A%20A%20part%20instance,part%29%20of%20a%20part%20type>
-
-\[6\] <https://www.precisionmoldedplastics.com/blog/cad-part-modeling/#:~:text=ISO%2010303%20includes%20numerous%20Application,Additionally>
-
-\[7\] <https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX>
+[reference-1]: https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit/#:~:text=A%20single,level%20subassemblies
+[reference-2]: https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit/#:~:text=blend%2C%20intermediate%2C%20etc,individual%20single%20level%20BOMs%20together
+[reference-3]: https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0042_Semantic_Model_Single_Level_BomAsPlanned_v_1.0.1.pdf#:~:text=The%20semantic%20model%20described%20below,BOM%E2%80%9D
+[reference-4]: https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit/#:~:text=to%20their%20sub,and%20data%20sovereign%20data%20chain
+[reference-5]: https://catenax-ev.github.io/docs/next/standards/CX-0126-IndustryCorePartType
+[reference-6]: https://catenax-ev.github.io/docs/next/standards/CX-0127-IndustryCorePartInstance
+[reference-7]: https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX
+[reference-8]: https://www.precisionmoldedplastics.com/blog/cad-part-modeling/#:~:text=ISO%2010303%20includes%20numerous%20Application,Additionally
 
 ## Appendix - Example
 
